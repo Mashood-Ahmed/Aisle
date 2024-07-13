@@ -1,20 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import SplashScreen from "./splash/_layout";
 import "google-fonts/";
-import {
-  Raleway_800ExtraBold,
-  Raleway_900Black,
-  useFonts,
-} from "@expo-google-fonts/raleway";
+import { Raleway_900Black, useFonts } from "@expo-google-fonts/raleway";
 import {
   NunitoSans_300Light,
   NunitoSans_400Regular,
 } from "@expo-google-fonts/nunito-sans";
-import { Stack } from "expo-router";
 
 export default function Index() {
   let [fontsLoaded] = useFonts({
-    Raleway_800ExtraBold,
+    Raleway_900Black,
     NunitoSans_400Regular,
     NunitoSans_300Light,
   });
@@ -24,9 +19,16 @@ export default function Index() {
   }
 
   return (
-    <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="signup" />
-    </Stack>
+    <View style={styles.container}>
+      <SplashScreen />
+    </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
